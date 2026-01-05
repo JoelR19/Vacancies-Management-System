@@ -51,7 +51,6 @@ JWT_SECRET=clave_secreta_para_tokens_123
 JWT_EXPIRES_IN=24h
 ````
 
-````
 
 
 ### 4. Ejecución

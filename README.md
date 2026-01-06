@@ -148,7 +148,7 @@ El proyecto cuenta con pruebas unitarias enfocadas en los servicios principales.
 
 ---
 
-## 📚 Documentación Swagger (Task 9)
+## 📚 Documentación Swagger 
 
 La documentación interactiva detallando cada DTO y esquema se encuentra en:
 👉 [http://localhost:3000/api/docs](https://www.google.com/search?q=http://localhost:3000/api/docs)

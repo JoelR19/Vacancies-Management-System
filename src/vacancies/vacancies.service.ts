@@ -13,17 +13,27 @@ export class VacanciesService {
 
   async create(createVacancyDto: CreateVacancyDto) {
     const vacancy = this.vacancyRepository.create(createVacancyDto);
-    
+
     return await this.vacancyRepository.save(vacancy);
   }
 
-  async findAll(page: number, limit: number, title?: string) {
+  async findAll(
+    page: number,
+    limit: number,
+    title?: string,
+    includeInactive = false,
+  ) {
+    const whereClause: any = {
+      ...(title && { title: Like(`%${title}%`) }),
+    };
+
+    if (!includeInactive) {
+      whereClause.isActive = true;
+    }
+
     const [data, total] = await this.vacancyRepository.findAndCount({
-      where: {
-        isActive: true,
-        ...(title && { title: Like(`%${title}%`) }),
-      },
-      relations: ['applications'], 
+      where: whereClause,
+      relations: ['applications', 'applications.user'],
       skip: (page - 1) * limit,
       take: limit,
       order: { createdAt: 'DESC' },
@@ -46,19 +56,19 @@ export class VacanciesService {
     }
 
     vacancy.isActive = !vacancy.isActive;
-    
+
     await this.vacancyRepository.save(vacancy);
-    
+
     return {
       message: `Vacante ${vacancy.isActive ? 'activada' : 'inactivada'} con éxito`,
-      isActive: vacancy.isActive
+      isActive: vacancy.isActive,
     };
   }
 
   async findOne(id: string) {
     const vacancy = await this.vacancyRepository.findOne({
-      where: { id, isActive: true },
-      relations: ['applications'],
+      where: { id },
+      relations: ['applications', 'applications.user'],
     });
 
     if (!vacancy) {

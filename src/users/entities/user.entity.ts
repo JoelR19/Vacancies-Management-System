@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  CreateDateColumn,
+} from 'typeorm';
 import { Application } from '../../applications/entities/application.entity';
 
 export enum UserRole {
@@ -26,4 +32,7 @@ export class User {
 
   @OneToMany(() => Application, (application) => application.user)
   applications: Application[];
+
+  @CreateDateColumn({ type: 'timestamptz' })
+  createdAt: Date;
 }

@@ -9,4 +9,4 @@ services:
       POSTGRES_PASSWORD: assessment_password
       POSTGRES_DB: assessment_platform
     ports:
-      - "5433:5432"
+      - '5440:5432'

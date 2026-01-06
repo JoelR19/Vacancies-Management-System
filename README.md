@@ -83,7 +83,7 @@ npm run start:prod
   "message": "Login exitoso",
   "data": {
     "user": {
-      "email": "coder@riwi.com",
+      "email": "coder@joel.com",
       "role": "CODER"
     }
   }

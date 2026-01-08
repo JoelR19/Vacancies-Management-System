@@ -13,7 +13,13 @@
 API REST profesional desarrollada con **NestJS** para la gestión del ciclo de vida de vacantes laborales y postulaciones. El sistema permite administrar usuarios con roles específicos, controlar el flujo de aplicaciones de candidatos y garantizar la integridad de los datos mediante reglas de negocio automatizadas.
 
 ---
+---
 
+## 📚 FrontEnd Repository 
+
+Front subido en otro repositorio👉 [Repositorio Front](https://github.com/JoelR19/vacanzy-hub)
+
+---
 ## ⚙️ Instalación y Configuración
 
 ### 1. Requisitos previos
